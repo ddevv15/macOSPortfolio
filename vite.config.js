@@ -23,6 +23,8 @@ export default defineConfig({
         dirname(fileURLToPath(import.meta.url)),
         "src/windows"
       ),
+      "@hooks": resolve(dirname(fileURLToPath(import.meta.url)), "src/hooks"),
+      "@mobile": resolve(dirname(fileURLToPath(import.meta.url)), "src/mobile"),
     },
   },
 });
