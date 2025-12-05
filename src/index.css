@@ -393,4 +393,437 @@ body {
       }
     }
   }
+
+  /* ================================
+     MOBILE (iOS-Style) COMPONENTS
+     ================================ */
+
+  #mobile-app {
+    @apply w-full h-dvh flex flex-col bg-black/20;
+  }
+
+  /* iOS Status Bar */
+  #mobile-status-bar {
+    @apply flex items-center justify-between px-6 py-2 text-white text-sm font-medium;
+    padding-top: env(safe-area-inset-top, 12px);
+  }
+
+  #mobile-time {
+    @apply font-semibold;
+  }
+
+  #mobile-status-icons {
+    @apply flex items-center gap-1.5;
+  }
+
+  /* Mobile Content Area */
+  #mobile-content {
+    @apply flex-1 overflow-hidden;
+  }
+
+  /* Home Indicator */
+  #mobile-home-indicator {
+    @apply flex justify-center pb-2 pt-1;
+    padding-bottom: env(safe-area-inset-bottom, 8px);
+  }
+
+  #mobile-home-bar {
+    @apply w-32 h-1 bg-white/60 rounded-full;
+  }
+
+  /* ================================
+     MOBILE HOME SCREEN
+     ================================ */
+
+  #mobile-home-screen {
+    @apply h-full flex flex-col px-6 py-4;
+  }
+
+  #mobile-welcome {
+    @apply text-center text-white mb-8 mt-4;
+
+    #mobile-welcome-subtitle {
+      @apply text-lg font-georama opacity-80 mb-1;
+    }
+
+    #mobile-welcome-title {
+      @apply text-3xl font-georama font-bold italic;
+    }
+  }
+
+  #mobile-app-grid {
+    @apply grid grid-cols-3 gap-6 justify-items-center;
+  }
+
+  .mobile-app-icon {
+    @apply flex flex-col items-center gap-2 cursor-pointer active:scale-95 transition-transform;
+
+    .mobile-app-icon-wrapper {
+      @apply w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-sm;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    .mobile-app-label {
+      @apply text-xs text-white font-medium text-center max-w-16 truncate;
+    }
+  }
+
+  /* ================================
+     MOBILE WINDOW
+     ================================ */
+
+  #mobile-window {
+    @apply h-full flex flex-col bg-white rounded-t-3xl overflow-hidden;
+  }
+
+  #mobile-window-header {
+    @apply flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200;
+  }
+
+  #mobile-back-button {
+    @apply flex items-center gap-0.5 text-blue-500 font-medium text-sm min-w-20;
+  }
+
+  #mobile-window-title {
+    @apply text-base font-semibold text-gray-800 text-center flex-1;
+  }
+
+  #mobile-header-spacer {
+    @apply min-w-20;
+  }
+
+  #mobile-window-content {
+    @apply flex-1 overflow-y-auto bg-white;
+  }
+
+  /* ================================
+     MOBILE FINDER
+     ================================ */
+
+  #mobile-finder {
+    @apply h-full flex flex-col;
+  }
+
+  #mobile-finder-tabs {
+    @apply flex gap-2 p-3 bg-gray-50 overflow-x-auto;
+
+    .mobile-finder-tab {
+      @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 bg-white border border-gray-200 whitespace-nowrap transition-colors;
+
+      &.active {
+        @apply bg-gray-100 text-gray-900 border-gray-400;
+      }
+    }
+  }
+
+  #mobile-finder-header {
+    @apply px-4 py-3 border-b border-gray-100;
+
+    h3 {
+      @apply text-lg font-semibold text-gray-800;
+    }
+  }
+
+  #mobile-finder-list {
+    @apply flex-1 overflow-y-auto;
+
+    .mobile-finder-item {
+      @apply flex items-center gap-3 px-4 py-3 border-b border-gray-100 active:bg-gray-50 cursor-pointer;
+
+      .mobile-finder-item-icon {
+        @apply w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center;
+
+        img {
+          @apply w-10 h-10 object-contain;
+        }
+      }
+
+      .mobile-finder-item-info {
+        @apply flex-1 min-w-0;
+
+        .mobile-finder-item-name {
+          @apply text-sm font-medium text-gray-800 truncate;
+        }
+
+        .mobile-finder-item-type {
+          @apply text-xs text-gray-500;
+        }
+      }
+
+      .mobile-finder-item-arrow {
+        @apply text-gray-400;
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE SAFARI (Blog)
+     ================================ */
+
+  #mobile-safari {
+    @apply p-4;
+  }
+
+  #mobile-safari-header {
+    @apply mb-6;
+
+    h2 {
+      @apply text-xl font-bold text-pink-600 mb-1;
+    }
+
+    p {
+      @apply text-sm text-gray-500;
+    }
+  }
+
+  #mobile-safari-posts {
+    @apply space-y-4;
+
+    .mobile-blog-post {
+      @apply bg-gray-50 rounded-xl overflow-hidden;
+
+      .mobile-blog-image {
+        @apply w-full h-40;
+
+        img {
+          @apply w-full h-full object-cover;
+        }
+      }
+
+      .mobile-blog-content {
+        @apply p-4 space-y-2;
+
+        .mobile-blog-date {
+          @apply text-xs text-gray-500;
+        }
+
+        .mobile-blog-title {
+          @apply text-sm font-semibold text-gray-800 line-clamp-2;
+        }
+
+        .mobile-blog-link {
+          @apply text-blue-500 text-sm font-medium flex items-center gap-1;
+        }
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE PHOTOS (Gallery)
+     ================================ */
+
+  #mobile-photos {
+    @apply p-4;
+  }
+
+  #mobile-photos-header {
+    @apply mb-4;
+
+    h2 {
+      @apply text-xl font-bold text-gray-800;
+    }
+
+    p {
+      @apply text-sm text-gray-500;
+    }
+  }
+
+  #mobile-photos-grid {
+    @apply grid grid-cols-2 gap-2;
+
+    .mobile-photo-item {
+      @apply aspect-square rounded-lg overflow-hidden cursor-pointer active:opacity-80 transition-opacity;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE CONTACT
+     ================================ */
+
+  #mobile-contact {
+    @apply p-6 flex flex-col items-center;
+  }
+
+  #mobile-contact-header {
+    @apply text-center mb-8;
+
+    #mobile-contact-avatar {
+      @apply w-24 h-24 rounded-full object-cover mx-auto mb-4 shadow-lg;
+    }
+
+    #mobile-contact-title {
+      @apply text-2xl font-bold text-gray-800 mb-1;
+    }
+
+    #mobile-contact-subtitle {
+      @apply text-gray-500;
+    }
+  }
+
+  #mobile-contact-socials {
+    @apply w-full space-y-3;
+
+    .mobile-social-link {
+      @apply flex items-center gap-4 w-full px-5 py-4 rounded-xl text-white font-medium transition-transform active:scale-98;
+
+      .mobile-social-icon {
+        @apply w-6 h-6;
+      }
+
+      .mobile-social-text {
+        @apply text-base;
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE TERMINAL (Skills)
+     ================================ */
+
+  #mobile-terminal {
+    @apply p-4 font-roboto;
+  }
+
+  #mobile-terminal-header {
+    @apply mb-4 pb-3 border-b border-gray-200;
+
+    .mobile-terminal-prompt {
+      @apply text-sm text-gray-600;
+
+      .mobile-terminal-user {
+        @apply font-bold text-gray-800;
+      }
+    }
+  }
+
+  #mobile-terminal-content {
+    @apply space-y-4;
+
+    .mobile-stack-category {
+      @apply bg-gray-50 rounded-lg p-4;
+
+      .mobile-stack-header {
+        @apply flex items-center gap-2 mb-2;
+
+        .mobile-stack-check {
+          @apply text-[#00A154];
+        }
+
+        .mobile-stack-title {
+          @apply font-semibold text-[#00A154];
+        }
+      }
+
+      .mobile-stack-items {
+        @apply flex flex-wrap gap-2;
+
+        .mobile-stack-item {
+          @apply bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200;
+        }
+      }
+    }
+  }
+
+  #mobile-terminal-footer {
+    @apply mt-6 pt-3 border-t border-gray-200 text-[#00A154] text-sm;
+
+    p {
+      @apply flex items-center gap-2;
+    }
+  }
+
+  /* ================================
+     MOBILE RESUME
+     ================================ */
+
+  #mobile-resume {
+    @apply p-6 flex flex-col items-center justify-center h-full;
+  }
+
+  #mobile-resume-preview {
+    @apply text-center mb-8;
+
+    #mobile-resume-icon {
+      @apply w-24 h-24 mx-auto mb-4 bg-red-100 rounded-2xl flex items-center justify-center text-red-500;
+    }
+
+    #mobile-resume-filename {
+      @apply text-xl font-semibold text-gray-800 mb-1;
+    }
+
+    #mobile-resume-info {
+      @apply text-sm text-gray-500;
+    }
+  }
+
+  #mobile-resume-actions {
+    @apply w-full space-y-3;
+
+    .mobile-resume-btn {
+      @apply flex items-center justify-center gap-3 w-full py-4 rounded-xl font-medium text-base transition-transform active:scale-98;
+
+      &.primary {
+        @apply bg-blue-500 text-white;
+      }
+
+      &.secondary {
+        @apply bg-gray-100 text-gray-700 border border-gray-200;
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE TEXT FILE
+     ================================ */
+
+  #mobile-text {
+    @apply p-4;
+
+    #mobile-text-image {
+      @apply w-32 h-32 mx-auto mb-4 rounded-xl overflow-hidden shadow-md;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    #mobile-text-subtitle {
+      @apply text-xl font-semibold text-gray-800 text-center mb-4;
+    }
+
+    #mobile-text-content {
+      @apply space-y-4;
+
+      p {
+        @apply text-gray-600 leading-relaxed;
+      }
+    }
+  }
+
+  /* ================================
+     MOBILE IMAGE
+     ================================ */
+
+  #mobile-image {
+    @apply h-full flex flex-col items-center justify-center p-4 bg-gray-900;
+
+    #mobile-image-container {
+      @apply flex-1 flex items-center justify-center w-full;
+
+      #mobile-image-preview {
+        @apply max-w-full max-h-full object-contain rounded-lg;
+      }
+    }
+
+    #mobile-image-name {
+      @apply text-white text-sm mt-4 text-center;
+    }
+  }
 }
