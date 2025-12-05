@@ -117,3 +117,32 @@
 - `src/windows/Contact.jsx` (styling updated)
 - `docs/activity.md` (updated)
 
+---
+
+### User Prompt
+> Fix the design issues with the photos window
+
+### Actions Performed
+
+1. **Fixed `/src/windows/Photos.jsx`**
+   - **Fixed typo**: Changed `classname` to `className` on the content container
+   - **Fixed layout structure**: Merged the two separate containers into one flex container
+     - Previously: sidebar and gallery were in separate parent divs
+     - Now: sidebar and gallery are siblings in a single flex container (`flex w-full h-full`)
+   - This matches the pattern used in Finder.jsx and aligns with the CSS in `#photos`
+   - Added hover effect on gallery items (`cursor-pointer hover:opacity-90 transition-opacity`)
+   - Improved gallery image name to include the ID for better identification
+   - Added unique IDs to all elements:
+     - `photos-header-icons` - header icons container
+     - `photos-content` - main content flex container
+     - `photos-sidebar` - sidebar container
+     - `photos-nav-list` - navigation list
+     - `photos-nav-item-{id}` - individual nav items
+     - `photos-gallery` - gallery container
+     - `photos-gallery-grid` - gallery grid
+     - `photos-gallery-item-{id}` - individual gallery items
+
+### Files Modified
+- `src/windows/Photos.jsx` (design fixes)
+- `docs/activity.md` (updated)
+
