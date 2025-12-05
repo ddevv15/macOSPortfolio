@@ -7,13 +7,14 @@ const useMobileStore = create(
     viewData: null, // Data passed to view (e.g., file contents, folder data)
     history: [], // For back navigation
 
-    openView: (view, data = null) =>
+    openView: (view, data = null, historyData = undefined) =>
       set((state) => {
         // Push current view to history if it exists
         if (state.currentView) {
           state.history.push({
             view: state.currentView,
-            data: state.viewData,
+            // Use historyData if provided, otherwise use current viewData
+            data: historyData !== undefined ? historyData : state.viewData,
           });
         }
         state.currentView = view;

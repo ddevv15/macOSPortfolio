@@ -7,10 +7,17 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
   background-image: url("/images/wallpaper.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 @theme {
@@ -33,7 +40,8 @@ body {
 
 @layer base {
   main {
-    @apply w-dvw h-dvh overflow-hidden;
+    @apply w-dvw min-h-dvh h-dvh overflow-hidden;
+    background: transparent;
   }
 
   nav {
@@ -399,7 +407,8 @@ body {
      ================================ */
 
   #mobile-app {
-    @apply w-full h-dvh flex flex-col bg-black/20;
+    @apply w-full min-h-dvh h-full flex flex-col;
+    background: transparent;
   }
 
   /* iOS Status Bar */
@@ -419,12 +428,14 @@ body {
   /* Mobile Content Area */
   #mobile-content {
     @apply flex-1 overflow-hidden;
+    background: transparent;
   }
 
   /* Home Indicator */
   #mobile-home-indicator {
-    @apply flex justify-center pb-2 pt-1;
-    padding-bottom: env(safe-area-inset-bottom, 8px);
+    @apply flex justify-center py-2;
+    padding-bottom: max(env(safe-area-inset-bottom, 8px), 8px);
+    background: transparent;
   }
 
   #mobile-home-bar {
@@ -437,6 +448,7 @@ body {
 
   #mobile-home-screen {
     @apply h-full flex flex-col px-6 py-4;
+    background: transparent;
   }
 
   #mobile-welcome {

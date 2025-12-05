@@ -13,10 +13,8 @@ const fileTypeIcons = {
 };
 
 const MobileFinder = ({ data }) => {
-  const { openView, replaceView } = useMobileStore();
-  const [activeLocation, setActiveLocation] = useState(
-    data || locations.work
-  );
+  const { openView } = useMobileStore();
+  const [activeLocation, setActiveLocation] = useState(data || locations.work);
 
   const handleItemClick = (item) => {
     if (item.kind === "folder") {
@@ -25,7 +23,8 @@ const MobileFinder = ({ data }) => {
     }
 
     if (item.fileType === "pdf") {
-      openView("resume");
+      // Pass activeLocation as historyData to preserve folder context
+      openView("resume", null, activeLocation);
       return;
     }
 
@@ -34,8 +33,8 @@ const MobileFinder = ({ data }) => {
       return;
     }
 
-    // Open text or image files
-    openView(`${item.fileType}file`, item);
+    // Open text or image files, passing activeLocation as historyData
+    openView(`${item.fileType}file`, item, activeLocation);
   };
 
   const handleLocationChange = (location) => {
@@ -69,7 +68,10 @@ const MobileFinder = ({ data }) => {
       {/* File List */}
       <ul id="mobile-finder-list">
         {activeLocation.children?.map((item) => {
-          const IconComponent = fileTypeIcons[item.fileType] || fileTypeIcons[item.kind] || FileText;
+          const IconComponent =
+            fileTypeIcons[item.fileType] ||
+            fileTypeIcons[item.kind] ||
+            FileText;
           return (
             <li
               key={item.id}
@@ -83,7 +85,9 @@ const MobileFinder = ({ data }) => {
               <div className="mobile-finder-item-info">
                 <p className="mobile-finder-item-name">{item.name}</p>
                 <p className="mobile-finder-item-type">
-                  {item.kind === "folder" ? "Folder" : item.fileType?.toUpperCase() || "File"}
+                  {item.kind === "folder"
+                    ? "Folder"
+                    : item.fileType?.toUpperCase() || "File"}
                 </p>
               </div>
               <ChevronRight className="mobile-finder-item-arrow" size={20} />
@@ -96,4 +100,3 @@ const MobileFinder = ({ data }) => {
 };
 
 export default MobileFinder;
-
